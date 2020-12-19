@@ -180,7 +180,7 @@ server.listen(port, host, () => {
 home.js;
 ```
 
--   In the `home.js`bring in the following
+###### In the `home.js`bring in the following
 
 ```javascript
 const express = require(express);
@@ -213,3 +213,7 @@ _app.get("/", (req, res) => {_
 _})_
 
 _in you main `index.js_ `
+
+-   ###### It should look like this:
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
