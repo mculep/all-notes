@@ -151,7 +151,8 @@ const http = require(http);
 const express = require(express);
 const app = express ();
 const server = http.createServer(app):
-const homeRouter = require('./routers') <---(Do this after making your routers and home.js)
+
+const homeRouter = require('./routers/home') <---(Do this after making your routers and home.js)
 
 port = 3000;
 host = "0.0.0.0";
@@ -179,9 +180,7 @@ server.listen(port, host, () => {
 home.js;
 ```
 
-In the `home.js`bring in the following
-
--   ###### router.get replaces what you put in app.get("/") in your main index.js
+-   In the `home.js`bring in the following
 
 ```javascript
 const express = require(express);
@@ -193,11 +192,24 @@ router.get("/", (req, res) => {
 module.exports = router;
 ```
 
--   ###### In your main `index.js`
+-   ###### Add this to your main `index.js`
+
+```javascript
+const homeRouter = require('./routers/home') <---(Do this after making your routers and home.js)
+```
+
+-   Also add this to your index.js.
 
 ```
-const homeRouter = require('./routers') <---(Do this after making your routers and home.js)
+app.use("/", homeRouter);
 ```
--   ###### It should look like this: 
 
-<img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
+**Above will replace your**
+
+_app.get("/", (req, res) => {_
+\*\*
+
+​ _res.send(`<h1>Hello World!</h1>`)_
+_})_
+
+_in you main `index.js_ `
