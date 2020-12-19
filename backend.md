@@ -227,8 +227,7 @@ server.listen(port, host, () => {
 * #### <u>Run nodemon and check to see if app.get is working</u>
 
 
-
-
+<img src="https://github.com/mculep/all-notes/blob/main/assets/Screen%20Shot%202020-12-19%20at%201.44.25%20AM.png" width="200px">
 
 
 
