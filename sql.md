@@ -30,11 +30,11 @@ Go back to terminal and type in code .
 
 -   _dialect: postgres ( Will always be postgres as long as you're working with postgres_)
 
+-   _Create a name and rename the attributes_
+
 -   ```javascript
     npx sequelize-cli model:generate --name yourmodelname --attributes name:string,type:string
     ```
-
-    -   _Create a name and rename the attributes_
 
 -   ```javascript
     npx sequelize-cli db:migrate
