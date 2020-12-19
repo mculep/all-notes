@@ -151,12 +151,16 @@ const http = require(http);
 const express = require(express);
 const app = express ();
 const server = http.createServer(app):
+const homeRouter = require('./routers') <---(Do this after making your routers and home.js)
+
 port = 3000;
 host = "0.0.0.0";
 
-app.get("/", (req, res)=>{
-  res.send(`<h1>Hello World!</h1>`)
-})
+app.use("/", homeRouter);
+(Above app.use replaces below)
+//app.get("/", (req, res)=>{
+//  res.send(`<h1>Hello World!</h1>`)
+//})
 
 server.listen(port, host, () => {
 	console.log("Running on port 3000");
