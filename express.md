@@ -176,11 +176,9 @@ server.listen(port, host, () => {
 
 > In that directory create a
 
-```javascript
-home.js;
-```
+`home.js`
 
-###### In the `home.js`bring in the following
+###### In the `home.js` bring in the following
 
 ```javascript
 const express = require(express);
@@ -198,7 +196,7 @@ module.exports = router;
 const homeRouter = require('./routers/home') <---(Do this after making your routers and home.js)
 ```
 
--   Also add this to your `index.js`.
+-   Also add this to your main `index.js`.
 
 ```
 app.use("/", homeRouter);
@@ -212,7 +210,7 @@ _app.get("/", (req, res) => {_
 ​ _res.send(`<h1>Hello World!</h1>`)_
 _})_
 
-in you main `index.js_ `
+in you main `index.js`
 
 -   ##### It should look like this:
 
