@@ -194,5 +194,6 @@ module.exports = router;
 ```
 const homeRouter = require('./routers') <---(Do this after making your routers and home.js)
 ```
+-   ###### It should look like this: 
 
-<img src="https://github.com/mculep/all-notes/blob/main/assets/Screen%20Shot%202020-12-19%20at%201.44.25%20AM.png" width="800px">
+<img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
