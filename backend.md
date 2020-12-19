@@ -93,6 +93,12 @@ module.exports = {
 
 
 
+
+
+
+
+
+
 # Sequelize 
 
 
@@ -166,6 +172,12 @@ app.use(session({
 
 
 
+
+
+
+
+
+# New App
 
 ```javascript
 npm init -y
