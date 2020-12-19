@@ -189,7 +189,11 @@ echo "node modules" >> .gitignore
 touch README.md
 ```
 
-* ###### Insert in package.json
+
+
+* #### Insert in package.json
+
+  
 
 ```javascript
 "dev": "nodemon index.js",
@@ -197,7 +201,9 @@ touch README.md
 
 
 
-* ###### In your index.js file
+* #### In your index.js file
+
+  
 
 ```javascript
 const http = require(http);
@@ -218,7 +224,7 @@ server.listen(port, host, () => {
 
 
 
-* ###### <u>Run nodemon and check to see if app.get is working</u>
+* #### <u>Run nodemon and check to see if app.get is working</u>
 
 
 
