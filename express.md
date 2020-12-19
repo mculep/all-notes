@@ -198,7 +198,7 @@ module.exports = router;
 const homeRouter = require('./routers/home') <---(Do this after making your routers and home.js)
 ```
 
--   Also add this to your index.js.
+-   Also add this to your `index.js`.
 
 ```
 app.use("/", homeRouter);
@@ -212,8 +212,8 @@ _app.get("/", (req, res) => {_
 ​ _res.send(`<h1>Hello World!</h1>`)_
 _})_
 
-_in you main `index.js_ `
+in you main `index.js_ `
 
--   ###### It should look like this:
+-   ##### It should look like this:
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
