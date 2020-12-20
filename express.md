@@ -147,6 +147,7 @@ touch README.md
 -   #### In your index.js file
 
 ```javascript
+//Main index.js
 const http = require(http);
 const express = require(express);
 const app = express ();
@@ -174,13 +175,12 @@ server.listen(port, host, () => {
 
 -   ###### Make a routers directory
 
-> In that directory create a
+> In that directory create a `home.js`
 
-`home.js`
-
-###### In the `home.js` bring in the following
+###### In the routers `home.js` bring in the following
 
 ```javascript
+//Routers home.js
 const express = require(express);
 const router = express.Router();
 
@@ -210,7 +210,7 @@ _app.get("/", (req, res) => {_
 ​ _res.send(`<h1>Hello World!</h1>`)_
 _})_
 
-in you main `index.js`
+in your main `index.js`
 
 -   ### It should look like this:
 
@@ -222,7 +222,6 @@ in you main `index.js`
 
 ```javascript
 const morgan = require("morgan");
-
 const logger = morgan("tiny");
 
 app.use(logger);
@@ -232,23 +231,13 @@ app.use(logger);
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/pancake-stack-middleware-to-router.png" width="800px">
 
--   In your main `index.js` add in morgan
-
-> Morgan is a middleware for `node.js` it logs incoming traffic and requests
-
-```javascript
-const morgan = require("morgan");
-const logger = morgan("tiny");
-
-app.use(logger);
-```
-
 > Check to see if everything shows up in the browser
 
 -   Create a **controllers** directory above routers directory
 -   Inside controllers, create a `home.js` file
 
 ```javascript
+// Controllers home.js
 const home = (req, res) => {
     res.send(`<h1>Hello from homeController</h1>`);
 };
@@ -264,9 +253,11 @@ module.exports = {
 router.get("/", (req, res) => {
     res.send(`<h1>Hello from homeRouter</h1>`);
 });
+```
 
-to;
+_TO THE CODE BELOW_
 
+```javascript
 router.get("/", home);
 ```
 
@@ -277,3 +268,7 @@ router.get("/", home);
 ```javascript
 const { home } = require("../controllers/home");
 ```
+
+> A Visual of how everything is working:
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/controllers.png" width="800px">
