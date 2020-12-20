@@ -215,3 +215,19 @@ in you main `index.js`
 -   ##### It should look like this:
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
+
+-   In your main `index.js` add in morgan
+
+> Morgan is a middleware for `node.js` it logs incoming traffic and requests
+
+```javascript
+const morgan = require("morgan");
+
+const logger = morgan("tiny");
+
+app.use(logger);
+```
+
+> Here is the pancake stack:
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
