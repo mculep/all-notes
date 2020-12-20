@@ -202,7 +202,7 @@ const homeRouter = require('./routers/home') <---(Do this after making your rout
 -   ###### Also add this to your main `index.js`.
 
 ```
-app.use("/", home;
+app.use("/", home);
 ```
 
 **Above will replace your**
