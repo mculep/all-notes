@@ -162,11 +162,10 @@ app.set('view engine', 'html');
 port = 3000;
 host = "0.0.0.0";
 
-app.use("/", homeRouter);
-(Above app.use replaces below)
-//app.get("/", (req, res)=>{
-//  res.send(`<h1>Hello World!</h1>`)
-//})
+
+app.get("/", (req, res)=>{
+  res.send(`<h1>Hello World!</h1>`)
+})
 
 server.listen(port, host, () => {
 	console.log("Running on port 3000");
@@ -203,7 +202,7 @@ const homeRouter = require('./routers/home') <---(Do this after making your rout
 -   ###### Also add this to your main `index.js`.
 
 ```
-app.use("/", homeRouter);
+app.use("/", home;
 ```
 
 **Above will replace your**
@@ -265,11 +264,11 @@ _TO THE CODE BELOW_
 router.get("/", home);
 ```
 
-**_router.get("/", home); calls the home function in controllers and sends to the brower_**
+**_router.get("/", home); calls the home function in controllers and sends to the browser_**
 
 -   Also add the following below in the **router** `home.js`
 
-> You need to deconstruct the "home" to avoid being undefined.
+> You need to deconstruct the "home" to avoid getting undefined.
 
 ```javascript
 const { home } = require("../controllers/home");
