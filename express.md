@@ -152,8 +152,12 @@ const http = require(http);
 const express = require(express);
 const app = express ();
 const server = http.createServer(app):
+const es6Renderer =require("express-es6-template-engine")
 
-const homeRouter = require('./routers/home') <---(Do this after making your routers and home.js)
+app.engine('html', es6Renderer);
+app.set('views', 'templates');
+app.set('view engine', 'html');
+
 
 port = 3000;
 host = "0.0.0.0";
@@ -261,6 +265,8 @@ _TO THE CODE BELOW_
 router.get("/", home);
 ```
 
+**_router.get("/", home); calls the home function in controllers and sends to the brower_**
+
 -   Also add the following below in the **router** `home.js`
 
 > You need to deconstruct the "home" to avoid being undefined.
@@ -272,3 +278,25 @@ const { home } = require("../controllers/home");
 > A Visual of how everything is working:
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/controllers.png" width="800px">
+
+-   ###### Now create a` templates` directory
+
+-   ###### Inside that directory create a file called `home.html`
+
+```html
+<h1>Hello World from template</h1>
+```
+
+-   ###### Go back to your **controllers** `home.js` and include this:
+
+```javascript
+res.render("home");
+```
+
+**And delete**
+
+```
+res.send(`<h1>Hello from homeController</h1>`);
+```
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/templates.png" width="800px">
