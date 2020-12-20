@@ -230,4 +230,4 @@ app.use(logger);
 
 > Here is the pancake stack:
 
-<img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
+<img src="https://github.com/mculep/all-notes/blob/main/assets/pancake-stack-middleware-to-router.png" width="800px">
