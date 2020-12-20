@@ -196,7 +196,7 @@ module.exports = router;
 const homeRouter = require('./routers/home') <---(Do this after making your routers and home.js)
 ```
 
--   Also add this to your main `index.js`.
+-   ###### Also add this to your main `index.js`.
 
 ```
 app.use("/", homeRouter);
@@ -212,11 +212,11 @@ _})_
 
 in you main `index.js`
 
--   ##### It should look like this:
+-   ### It should look like this:
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/router.get.png" width="800px">
 
--   In your main `index.js` add in morgan
+-   ###### In your main `index.js` add in morgan
 
 > Morgan is a middleware for `node.js` it logs incoming traffic and requests
 
@@ -231,3 +231,49 @@ app.use(logger);
 > Here is the pancake stack:
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/pancake-stack-middleware-to-router.png" width="800px">
+
+-   In your main `index.js` add in morgan
+
+> Morgan is a middleware for `node.js` it logs incoming traffic and requests
+
+```javascript
+const morgan = require("morgan");
+const logger = morgan("tiny");
+
+app.use(logger);
+```
+
+> Check to see if everything shows up in the browser
+
+-   Create a **controllers** directory above routers directory
+-   Inside controllers, create a `home.js` file
+
+```javascript
+const home = (req, res) => {
+    res.send(`<h1>Hello from homeController</h1>`);
+};
+
+module.exports = {
+    home,
+};
+```
+
+-   Go to your **router** `home.js` file & modify
+
+```javascript
+router.get("/", (req, res) => {
+    res.send(`<h1>Hello from homeRouter</h1>`);
+});
+
+to;
+
+router.get("/", home);
+```
+
+-   Also add the following below in the **router** `home.js`
+
+> You need to deconstruct the "home" to avoid being undefined.
+
+```javascript
+const { home } = require("../controllers/home");
+```
