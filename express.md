@@ -82,50 +82,6 @@ module.exports = {
 
 app.use(express.urlencoded({ extended: true }));
 
-# Sessions
-
--   Add sessions to the .gitignore file
-
-Install the "session-file-store" and "express-session" modules
-
-```javascript
-npm i session-file-store express-session
-```
-
--   ###### Import and configure the session middleware in "index.js"
-
-```javascript
-const session = require("express-session");
-
-const FileStore = require("session-file-store")(session);
-
-app.use(
-    session({
-        store: new FileStore(), // no options for now
-        secret: process.env.SESSION_SECRET,
-        saveUninitialized: false,
-        resave: true,
-        rolling: true,
-        //maxAge: 1000 * 60 * 60 * 24 * 7,
-        cookie: {
-            maxAge: 1000 * 60 * 60 * 24 * 7,
-        },
-    })
-);
-```
-
--   ###### Make sure to add a `SESSION_SECRET` random string to your `.env` (and a placeholder in your `dist.env`)
-
--   Tell `nodemon` to ignore the `sessions` folder:
-
-```javascript
-"nodemonConfig": {
-	"ignore": [
-		"sessions/*"
-	]
-}
-```
-
 # MVC (Models, Views, and Controllers)
 
 > Express.js uses MVC concept
@@ -310,4 +266,91 @@ res.send(`<h1>Hello from homeController</h1>`);
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/templates.png" width="800px">
 
----
+### Movies object: an array of 3 movie titles
+
+> Working with a .json file and using this data in the template
+
+-   ###### Create a `data.json`
+
+```javascript
+[
+    {
+        id: 1,
+        title: "Nacho Libre",
+    },
+    {
+        id: 2,
+        title: "School Of Rock",
+    },
+    {
+        id: 3,
+        title: "North Shore",
+    },
+];
+```
+
+-   ###### In your main `index. js` require the `data.json` file.
+
+```javascript
+const data = require("./data.json");
+```
+
+> _you can view it by console.log(data); to see if data shows in terminal_
+
+-   ###### Create a route in your main `index.js`
+
+> By doing this, `res.send(data);` will send this to your browser
+
+```javascript
+app.get("/movies", (req, res) = > {
+  res.send(data);
+});
+```
+
+-   ###### in your templates directory create a `moviesList.html`
+
+```html
+<h1>Hello from moviesList.html</h1>
+```
+
+-   ###### Still in your main `index. js` , replace res.send(data); with:
+
+> res.render will read the text from movies.html and send it to the browser
+
+```javascript
+res.render("movieList");
+```
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/templates2.png" width="800px">
+
+-   ###### Adding a locals object
+
+> Locals adds variables and values to the template
+>
+> The "movies variable" needs to be mapped in the `movieList.html ` to show the value "data"
+
+```javascript
+app.get("/movies", (req, res) => {
+    res.render("moviesList", {
+        locals: {
+            movies: data,
+        },
+    });
+});
+```
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/locals.png" width="800px">
+
+-   Using that local "movies" variable in your` movieList.html`
+
+> `.map` converts the array of objects into an array of HTML strings.
+
+```html
+<h2>
+    ${ movies.map(d => `
+    <p>${d.title}</p>
+    `).join(''); }
+</h2>
+```
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/map.png" width="800px">
