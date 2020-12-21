@@ -126,6 +126,17 @@ app.use(
 }
 ```
 
+# MVC (Models, Views, and Controllers)
+
+> Express.js uses MVC concept
+
+-   Model - Interacts with the database and commmunicates with controllers. Represents data in your code and you are able to work with the data ex: save, fetch, to and from a file.
+-   View = Is what you see on screen. Rendering HTML contents and communicates with controller & model.
+
+Uses template engines like es6renderer.
+
+-   Controller is the connection point between the models and views. Takes in user input (GET, POST etc), controller gets data from the model and passes data to the view and the template engine takes over.
+
 # New App
 
 ```javascript
@@ -299,3 +310,5 @@ res.send(`<h1>Hello from homeController</h1>`);
 ```
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/templates.png" width="800px">
+
+---
