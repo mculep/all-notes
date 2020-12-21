@@ -2,13 +2,15 @@
 
 > Express.js uses MVC concept
 
--   Model - Interacts with the database and commmunicates with controllers. Represents data in your code and you are able to work with the data ex: save, fetch, to and from a file.
+-   Model - The part of our application that will deal with the database or any data-related functionality.
 
--   View - Is what you see on screen. Rendering HTML contents and communicates with controller & model. Uses template engines like es6renderer.
+-   View - everything the user will see — basically, the pages that we’re going to send to the client.
 
--   Controller - is the connection point between the models and views. Takes in user input (GET, POST etc), controller gets data from the model and passes data to the view and the template engine takes over.
+-   Controller - The logic of our site, and the glue between models and views. Here we call our models to get the data, then we put that data on our views to be sent to the users.
 
-# New App
+-   Reference link [https://www.sitepoint.com/node-js-mvc-application/]
+
+# Steps on creating a new app
 
 ```javascript
 npm init -y
