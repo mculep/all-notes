@@ -1,87 +1,3 @@
-# Dotenv
-
-```javascript
-npm i dotenv
-```
-
--   Create a `.env` file (NO SPACES)
-
-```
-DB_USER=paste_from_elephantsql
-DB_PASSWORD=paste_from_elephantsql
-DB_NAME=paste_from_elephantsql
-DB_HOST=paste_from_elephantsql
-```
-
--   Create a `.sequelizerc`
-
-```javascript
-const path = require("path");
-
-module.exports = {
-    config: path.resolve("server/config", "config.js"),
-    "models-path": path.resolve("server", "models"),
-    "seeders-path": path.resolve("server", "seeders"),
-    "migrations-path": path.resolve("server", "migrations"),
-};
-```
-
-Create a `server/config/config.js`
-
-```
-require('dotenv').config()
-
-module.exports = {
-
-  development: {
-		username: process.env.DB_USER,
-		password: process.env.DB_PASSWORD,
-		database: process.env.DB_NAME,
- 		host: process.env.DB_HOST,
-		dialect: 'mysql'
-
-  },
-
-  test: {
-		username: process.env.DB_USER,
-		password: process.env.DB_PASSWORD,
-		database: process.env.DB_NAME,
-		host: process.env.DB_HOST,
-		dialect: 'mysql'
-
-  },
-
-  production: {
-		username: process.env.DB_USER,
-		password: process.env.DB_PASSWORD,
-		database: process.env.DB_NAME,
-		host: process.env.DB_HOST,
-		dialect: 'mysql'
-
-  }
-
-}
-```
-
--   Create a `.sequelizerc`
-
-```javascript
-const path = require("path");
-
-module.exports = {
-    config: path.resolve("server/config", "config.js"),
-    "models-path": path.resolve("server", "models"),
-    "seeders-path": path.resolve("server", "seeders"),
-    "migrations-path": path.resolve("server", "migrations"),
-};
-```
-
-# Sequelize
-
--   Sequelize is a JS library that speaks to Postgres
-
-app.use(express.urlencoded({ extended: true }));
-
 # MVC (Models, Views, and Controllers)
 
 > Express.js uses MVC concept
@@ -385,7 +301,7 @@ module.exports = router;
 
 -   ###### Go back to `index.js` and declare a variable to require
 
-> You need to import to the maiin `index.js` using the code below
+> You need to import to the main `index.js` using the code below
 
 ```javascript
 const movieRouter = require("./routers/movieRouter");
