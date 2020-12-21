@@ -268,9 +268,9 @@ res.send(`<h1>Hello from homeController</h1>`);
 
 ### Movies object: an array of 3 movie titles
 
-> Working with a .json file and using this data in the template
+-   ###### Create a `data.json` file
 
--   ###### Create a `data.json`
+> Working with a .json file and using this data in the template
 
 ```javascript
 [
@@ -304,6 +304,7 @@ const data = require("./data.json");
 ```javascript
 app.get("/movies", (req, res) = > {
   res.send(data);
+	console.log(data);
 });
 ```
 
@@ -313,7 +314,7 @@ app.get("/movies", (req, res) = > {
 <h1>Hello from moviesList.html</h1>
 ```
 
--   ###### Still in your main `index. js` , replace res.send(data); with:
+-   ###### Go back to your your main `index.js` , replace "res.send(data);" with the code below.
 
 > res.render will read the text from movies.html and send it to the browser
 
@@ -341,7 +342,7 @@ app.get("/movies", (req, res) => {
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/locals.png" width="800px">
 
--   Using that local "movies" variable in your` movieList.html`
+-   ###### Using that local "movies" variable in your` movieList.html`
 
 > `.map` converts the array of objects into an array of HTML strings.
 
@@ -354,3 +355,83 @@ app.get("/movies", (req, res) => {
 ```
 
 <img src="https://github.com/mculep/all-notes/blob/main/assets/map.png" width="800px">
+
+-   ###### Create a movie router `movie.js` in the router directory. Cut this code from your `index.js` and paste it in your `movie.js` in your router
+
+-   ###### Change your `app.get` to `router.get`
+
+-   ###### Delete "movies" from router.get("/movies", (req, res) => {
+
+```javascript
+router.get("/", (req, res) => {
+    res.render("moviesList", {
+        locals: {
+            movies: data,
+        },
+    });
+});
+```
+
+-   ###### Also add this to the top of our movie.js in your routers
+
+-   ###### And exports down below
+
+```javascript
+const express = require("express");
+const router = express.Router();
+
+module.exports = router;
+```
+
+-   ###### Go back to `index.js` and declare a variable to require
+
+> You need to import to the maiin `index.js` using the code below
+
+```javascript
+const movieRouter = require("./routers/movieRouter");
+```
+
+-   ###### Also add this to your main `index.js`
+
+```javascript
+app.use("/movies", movieRouter);
+```
+
+-   ###### Create `movies.js` in to your **controllers** directory and add the following code below
+
+```javascript
+const data = require("../data.json");
+```
+
+-   Also add this to the `movies.js` in controllers directory
+
+> It is the controllers job to handle the request and send responses.
+
+```javascript
+const movieHandler = (req, res) => {
+	res.render("moviesList", {
+		locals:{
+			movies: data
+		}
+	});
+});
+
+module.exports = {
+	movieHandler
+}
+```
+
+-   ###### Go back to your `movies.js` in your routers directory and import it: 
+
+```javascript
+const { movieHandler } = require("../controllers/movies.js");
+router.get("/", movieHandler); // <------- movieHandler function that's in the contollers
+```
+
+-   #### Your routers and controllers should now look like this:
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/moviehandler.png" width="800px">
+
+-   #### How everything is working:
+
+<img src="https://github.com/mculep/all-notes/blob/main/assets/pic1.png" width="800px">
