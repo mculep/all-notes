@@ -10,7 +10,7 @@
 
 -   Reference link [https://www.sitepoint.com/node-js-mvc-application/]
 
-# Steps on creating a new app
+# Steps on creating a new app with a .json file
 
 ```javascript
 npm init -y
@@ -32,8 +32,8 @@ touch README.md
 
 ```javascript
 //Main index.js
-const http = require(http);
-const express = require(express);
+const http = require("http");
+const express = require("express");
 const app = express ();
 const server = http.createServer(app):
 const es6Renderer =require("express-es6-template-engine")
