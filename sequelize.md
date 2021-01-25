@@ -45,3 +45,14 @@ Go back to terminal and type in code .
 -   ```javascript
     npx sequelize-cli db:migrate
     ```
+
+-   ## If you make a mistake:
+
+```sh
+npx sequelize db:migrate:undo or undo:all
+```
+
+## Resources
+
+-   [https://sequelize.org/master/manual/assocs.html#special-methods-mixins-added-to-instances]
+-   [https://levelup.gitconnected.com/table-relationships-in-sequelize-2e2533580c2a]
