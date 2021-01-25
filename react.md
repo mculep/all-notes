@@ -86,6 +86,9 @@ const [value, setValue] = useState(Whatever you put in here is your starter valu
 
 ```
 
+![useState](https://github.com/mculep/all-notes/blob/main/assets/useState.png)
+
+
 ### Conditional Rendering: 
 
 * Example if someone is not logged in, do not show their name. If they are logged in,  welcome them with   their name. 
